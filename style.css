@@ -1,0 +1,94 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #3C3939;
+}
+
+.nav ul {
+    list-style: none;
+    background-color: #232222;
+    text-align: left;
+    padding: 0;
+    margin: 0;
+    
+}
+
+.nav li {
+    font-size : 1.2em;
+    line-height: 50px;
+    text-align:left;
+}
+
+.nav a {
+    text-decoration: none;
+    color: #fff;
+    display: block;
+    padding-right:10px;
+    border-bottom: 1px solid #888 ;
+    transition: .3s;
+}
+
+.nav a:hover {
+  background-color: #005f5f;
+
+}
+
+.mainHome .header h1 {
+    text-align:center;
+    color: #fff;
+    font-family: monospace;
+    font-size : 3.2em;
+    padding: 0px;
+    margin: 30px;
+}
+
+.mainHome .header h2 {
+    text-align:center;
+    color: #fff;
+    font-family: monospace;
+    font-size : 2.5em;
+    padding: 0px;
+    margin: 0px;
+}
+
+.mainHome .title h3 {
+    text-align:center;
+    color: #fff;
+    font-family: monospace;
+    padding: 0px;
+    margin: 0px;
+}
+
+.mainHome .title h4 {
+    text-align:center;
+    color: #fff;
+    font-family: monospace;
+    padding: 0px;
+    margin: 0px;
+}
+
+
+
+@media screen and (min-width: 650px) {
+    .nav li {
+        width: 130px;
+        border-bottom: none;
+        height: 50px;
+        line-height: 50px;
+        font-size: 1.4em;
+        display: inline-block;
+        margin-right: -4px;
+
+    }
+    .nav a {
+        border-bottom: none;
+    }
+    .nav > ul > li {
+        text-align: center;
+    }
+    .nav li ul {
+        position:absolute;
+        display: none;
+        width: inherit;
+    }
+}
