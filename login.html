@@ -125,22 +125,11 @@
           function checkUser()    {
                                     var user=document.getElementById("user").value;
                                     var pass=document.getElementById("pass").value;
-                                    if(user==backup_datas[1]["id"] && pass==backup_datas[1]["pw"])  {correctUser();}
-                                    else{wrongUser();}
-                                  }
-
-          function correctUser()  {
-                                    alert("Correct!!?")
-                                  }
-
-          function wrongUser()    {
-                                    alert("Wrong!! Username or Password");
-                                  }
-          
-          function checkUser()    {
-                                    location.replace("Home.html")
-                                  }
-
+                                    console.log(user,pass)
+                                    if(user==="admin" && pass==="admin")  
+                                    {location.replace("Home.html")}
+                                    else{alert("Username or Password is wrong , Please try again.")}
+                                    }
         </script>
         
     </body>
