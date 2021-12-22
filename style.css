@@ -8,6 +8,7 @@ body {
     list-style: none;
     background-color: #232222;
     text-align: left;
+    font-family: monospace;
     padding: 0;
     margin: 0;
     
@@ -17,6 +18,7 @@ body {
     font-size : 1.2em;
     line-height: 50px;
     text-align:left;
+    font-family: monospace;
 }
 
 .nav a {
@@ -26,8 +28,13 @@ body {
     padding-right:10px;
     border-bottom: 1px solid #888 ;
     transition: .3s;
+    font-family: monospace;
 }
-
+.nav i {
+    color : #fff;
+    padding: 10px;
+    margin:-40px;
+}
 .nav a:hover {
   background-color: #005f5f;
 
@@ -39,7 +46,7 @@ body {
     font-family: monospace;
     font-size : 3.2em;
     padding: 0px;
-    margin: 30px;
+    margin: 0px;
 }
 
 .mainHome .header h2 {
@@ -57,6 +64,7 @@ body {
     font-family: monospace;
     padding: 0px;
     margin: 0px;
+    font-size:25px;
 }
 
 .mainHome .title h4 {
@@ -65,8 +73,23 @@ body {
     font-family: monospace;
     padding: 0px;
     margin: 0px;
+    font-size:15px;
 }
 
+.mainHome .picture {
+    text-align:center;
+}
+
+.mainHome .subtitle {
+    margin: 30px;
+    width: 75%;
+    color: #fff;
+    line-height: 25px;
+    border-bottom: 30px;
+    margin-left: 25%;
+    font-size: 18px;
+    font-weight: 300;
+}
 
 
 @media screen and (min-width: 650px) {
