@@ -1,4 +1,36 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <div class="bg-image">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width-device-width, initial=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Sensor | Wealty</title>
+        <link rel="shortcut icon" href="icon.ico">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="style.css">
+    
+    </head>
+    <body>
+    
+        <header>
+          <div class="nav">
+              <ul>
+                  <li class="Home"><a href="#">Home</a></li>
+                  <li class="Sensor"><a href="#">Sensor</a></li>
+                  <li class="About"><a href="#">About</a></li>
+                  &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                  &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                  &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                  &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                  &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                  &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                  &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                  &emsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                 <li class="Logout"><a href="#">Logout</a></li><i class="small material-icons">input</i>
+              </ul>
+          </div>
+        </header>
 
     <head>
         
@@ -78,18 +110,19 @@
      <style>
         h5 {
           font-size: 30px;
+          color:#fff ;
         }
      </style>
     <body ng-app="firebaseApp">
         <div ng-controller="firebaseCtrl" >
-            <h5 id="DO" align="right">Air Quality Index</h5>
-            <div id = "guage0" style="width:30%"></div>
+            <h5 id="DO" align="center">Air Quality Index</h5>
+            <div id = "guage0"  style="width:600px ;height: 300px ; margin: 0 auto"></div><br>
             <!-- <h5 id="Epoch" align="right">EpochTime</h5>
             <div id = "guage1" style="width:30%;"></div> -->
-            <h5 id="Hum" align="right">Humidity</h5>
-            <div id = "guage2" style="width:30%;"></div>
-            <h5  id='Tem' align="right">temperature</h5>
-            <div id = "guage3" style="width:30%;"></div>
+            <h5 id="Hum" align="center">Humidity</h5>
+            <div id = "guage2"  style="width:600px ;height: 300px ; margin: 0 auto"></div>
+            <h5  id='Tem' align="center">temperature</h5>
+            <div id = "guage3"  style="width:600px ;height: 300px;margin: 0 auto ;"></div>
         </div>
 
         <script src="raphael-2.1.4.min.js"></script>
@@ -104,10 +137,10 @@
                         max: 100,
                         gaugeWidthScale: 0.7,
                         counter: true,
-                        titleFontColor: "#000",
+                        titleFontColor: "#fff",
                         titleFontFamily: "Georgia",
                         titlePosition: "below",
-                        valueFontColor: "#505050",
+                        valueFontColor: "green",
                         valueFontFamily: "Georgia",
                         titleFontFamily: "Vollkorn",
                     });
@@ -137,12 +170,13 @@
                         max: 100,
                         gaugeWidthScale: 0.7,
                         counter: true,
-                        titleFontColor: "#000",
+                        titleFontColor: "#fff",
                         titleFontFamily: "Georgia",
                         titlePosition: "below",
-                        valueFontColor: "#505050",
+                        valueFontColor: "green",
                         valueFontFamily: "Georgia",
                         titleFontFamily: "Vollkorn",
+                
                         });
             var guage3; 
             guage3 = new JustGage({
@@ -153,16 +187,18 @@
                         max: 60,
                         gaugeWidthScale: 0.7,
                         counter: true,
-                        titleFontColor: "#000",
+                        titleFontColor: "#fff",
                         titleFontFamily: "Georgia",
                         titlePosition: "below",
-                        valueFontColor: "#505050",
+                        valueFontColor: "green",
                         valueFontFamily: "Georgia",
                         titleFontFamily: "Vollkorn",
                         });
+      
 
                         
         </script>
+    </div>
     </body>
 
 
