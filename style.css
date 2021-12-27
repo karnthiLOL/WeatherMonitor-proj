@@ -3,7 +3,7 @@
      background-image:url("CB.jpg");
      background-position: center;
      background-repeat: no-repeat;  
-     background-size: 100% 100%;
+     background-size: cover;
  }
     p1 {
         color:#66CCFF ;
