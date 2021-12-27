@@ -1,3 +1,25 @@
+.bg-image {
+    background-color: #232222;
+     background-image:url("CB.jpg");
+     background-position: center;
+     background-repeat: no-repeat;  
+     background-size: 100% 100%;
+ }
+    p1 {
+        color:#66CCFF ;
+    }
+    p2 {
+        color:#33CC33 ;
+    }
+    p3 {
+        color:#FFFF00 ;
+    }
+    p4 {
+        color:#FF6600 ;
+    }
+    p5 {
+        color:#FF0000 ;
+    }
 body {
     margin: 0;
     padding: 0;
@@ -115,5 +137,3 @@ body {
         width: inherit;
     }
 }
-
-
