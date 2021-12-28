@@ -128,12 +128,28 @@ body {
     font-size: 30px;
     text-align: center;
     color :orange ;
+    text-shadow: 1px 1px yellow;
 }
 
 .check2 h6 {
     font-size: 30px;
     text-align: center;
     color :orange ;
+    text-shadow: 1px 1px yellow;
+}
+.check3 h3 {
+    font-size: 30px;
+    text-align: center;
+    color :	red ;
+    text-shadow: 1px 1px yellow;
+}
+
+.check3 h6 {
+    font-size: 30px;
+    text-align: center;
+    color :	red ;
+    text-shadow: 1px 1px yellow;
+
 }
 
 
