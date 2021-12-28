@@ -117,6 +117,21 @@
             color:greenyellow ;
             text-align: center;
         }
+        h4 {
+            font-size: 30px;
+            color: greenyellow ;
+            text-align: center;
+        }
+        h5 {
+            font-size: 30px;
+            color:#fff ;
+            text-align: center;
+        }
+        h6 {
+            font-size: 30px;
+            color:greenyellow ;
+            text-align: center;
+        }
      </style>
     <body ng-app="firebaseApp">
         <div ng-controller="firebaseCtrl" >
@@ -169,7 +184,7 @@
             var guage2; 
             guage2 = new JustGage({
                         id: "guage2",
-                        title: <img src="hugage.png" alt="html5"width="50" height="50"/>"Humidity",
+                        title: "Humidity",
                         value: 1,
                         min: 0,
                         max: 100,
@@ -205,9 +220,22 @@
         </script>
     </div>
        <div class ="Check">
-           <br><br><br><br><h3><img src="ideaicon.png" alt="html5"width="50" height="50"/>ช่วงที่ดีสำหรับการออกจากบ้าน<img src="ideaicon.png" alt="html5"width="50" height="50"/></h3>
-            <h4>ช่วงอุณภูมิ </h4>
-
+           <br><br><br><br><h3><img src="ideaicon.png" alt="html5"width="50" height="50"/>ช่วงที่ดีที่สุดสำหรับการออกจากบ้าน<img src="ideaicon.png" alt="html5"width="50" height="50"/></h3>
+            <h4><img src="sunsimp.png" alt="html5"width="400" height="400"/></h4>
+            <h6>ช่วงอุณหภูมิ: 32.5-35.5 องศา |  ความชื้น : 40-60% RH | ค่าฝุ่น : 0-50 AQI</h6>
+            <h6>คำแนะนำ : ดีสำหรับการออกไปข้างนอกหรือทำกิจกรรมนอกบ้าน</h6>
+       </div>
+       <div class = "check1">
+        <br><br><br><br><h3><img src="ideaicon.png" alt="html5"width="50" height="50"/>ช่วงปานกลางสำหรับการออกจากบ้าน<img src="ideaicon.png" alt="html5"width="50" height="50"/></h3>
+        <h4><img src="sunsimp.png" alt="html5"width="400" height="400"/></h4>
+        <h6>ช่วงอุณหภูมิ: 29.9-36.9 องศา |  ความชื้น : 38.8-65.5% RH | ค่าฝุ่น : 55-80 AQI</h6>
+        <h6>คำแนะนำ : อากาศมีการเปลี่ยนแปลงนิดหน่อยแต่ยังสามารถออกไปข้างนอกได้ตามปกติ และ ค่าฝุ่นยังอยู่ในเกณฑ์ที่ดี</h6>
+       </div>
+       <div class = "check2">
+        <br><br><br><br><h3><img src="ideaicon.png" alt="html5"width="50" height="50"/>ช่วงไม่ควรสำหรับการออกจากบ้าน<img src="ideaicon.png" alt="html5"width="50" height="50"/></h3>
+        <h4><img src="sunsimp.png" alt="html5"width="400" height="400"/></h4>
+        <h6>ช่วงอุณหภูมิ: 29.9-36.9 องศา |  ความชื้น : 38.8-65.5% RH | ค่าฝุ่น : 55-80 AQI</h6>
+        <h6>คำแนะนำ : อากาศมีการเปลี่ยนแปลงนิดหน่อยแต่ยังสามารถออกไปข้างนอกได้ตามปกติ และ ค่าฝุ่นยังอยู่ในเกณฑ์ที่ดี</h6>
        </div>
     </body>
 

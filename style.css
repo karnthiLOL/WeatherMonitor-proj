@@ -112,6 +112,30 @@ body {
     font-size: 18px;
     font-weight: 300;
 }
+ 
+.check1 h3 {
+    font-size: 30px;
+    text-align: center;
+    color :yellow ;
+}
+
+.check1 h6 {
+    font-size: 30px;
+    text-align: center;
+    color :yellow ;
+}
+.check2 h3 {
+    font-size: 30px;
+    text-align: center;
+    color :orange ;
+}
+
+.check2 h6 {
+    font-size: 30px;
+    text-align: center;
+    color :orange ;
+}
+
 
 
 @media screen and (min-width: 650px) {
