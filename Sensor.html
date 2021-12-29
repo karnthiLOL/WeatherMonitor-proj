@@ -28,6 +28,8 @@
                   &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
                   &emsp;&nbsp;&nbsp;&nbsp;&nbsp;
                  <li class="Logout"><a href="./login.html">Logout</a></li><i class="small material-icons">input</i>
+                 <div class="datemonthyear"><h5 id="date-time"></h5></div>
+                 <div class="Time"><h1 id="demo"></h1></div>
               </ul>
           </div>
         </header>
@@ -73,11 +75,16 @@
                          document.getElementById('DO').innerHTML =" Air Quality Index : " + show + " AQI ";
                         guage0.refresh(show);
 
-                        // const EpochTime = datas[1]
-                        // console.log(EpochTime)
+                        const EpochTime = datas[1]
+                        console.log(EpochTime)
                         // document.getElementById('Epoch').innerHTML =" EpochTime : " + EpochTime + "sec";
                         // guage1.refresh(EpochTime);
-
+                        var timestant = new Date(EpochTime * 1000)
+                        var year = timestant.getFullYear()+543 
+                        var month = timestant.getMonth()+1
+                        var day = timestant.getDate()
+                        document.getElementById('date-time').innerHTML = "วัน/เดือน/ปี ："+day+"/"+month+"/"+ year ;
+                        
                         const Humidity = datas[2]
                         console.log(Humidity)
                         document.getElementById('Hum').innerHTML =" Humidity : " + Humidity + " %";
@@ -88,8 +95,14 @@
                         document.getElementById('Tem').innerHTML =" temperature : " + temperature + " องศา";
                         guage3.refresh(temperature);
 
+                        setInterval(myTimer, 1000);
+                        function myTimer() {
+                        const d = new Date();
+                        document.getElementById("demo").innerHTML = d.toLocaleTimeString();
+                        }
 
-                        
+
+
                         // const tempureter = datas[4]
                         // console.log(tempureter)
                         // document.getElementById('temp').innerHTML =" Tempureter : " + tempureter + "C";
@@ -103,6 +116,7 @@
                 firebaseService.initFirebase();
                 firebaseService.eventFirebase();
             })
+                 
         </script>
         
     </head>
@@ -110,7 +124,8 @@
      <style>
         h5 {
           font-size: 30px;
-          color:#fff ;
+          color: white ;
+          text-shadow: 1px 1px black;
         }
         h3 {
             font-size: 30px;
@@ -124,16 +139,36 @@
             text-align: center;
             text-shadow: 1px 1px yellowgreen;
         }
-        h5 {
-            font-size: 30px;
-            color:#fff ;
-            text-align: center;
-        }
+        
         h6 {
             font-size: 30px;
             color:greenyellow ;
             text-align: center;
             text-shadow: 1px 1px yellowgreen;
+        }
+
+        div.datemonthyear {
+              position: absolute;
+              top: 40px;
+              right:0;
+              width: 400px;
+              height: 100px;             
+            }
+        div.datemonthyear h5 {
+                font-size: 30px;
+                text-shadow: 1px 1px white;
+                color:black ;
+            }
+        
+        div .Time h1 {
+            position: absolute;
+            top: 30px;
+            right:0;
+            width: 150px;
+            height: 100px;  
+            font-size: 30px;
+            text-shadow: 1px 1px white;
+            color:black ;
         }
      </style>
     <body ng-app="firebaseApp">
@@ -218,8 +253,6 @@
                         titleFontFamily: "Vollkorn",
                         });
       
-
-                        
         </script>
     </div>
        <div class ="Check">
