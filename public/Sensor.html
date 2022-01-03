@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="shortcut icon" href="icon.ico">
+    <div class="bg-image">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width-device-width, initial=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Sensor | Wealty</title>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="style.css">
+    
+    </head>
+    <body>
+    
+        <header>
+          <div class="nav">
+              <ul>
+                  <li class="Home"><a href="./Home.html">Home</a></li>
+                  <li class="Sensor"><a href="./Sensor.html">Sensor</a></li>
+                  <li class="About"><a href="./About.html">About</a></li>
+                  &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                  &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                  &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                  &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                  &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                  &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                  &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                  &emsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                 <li class="Logout"><a href="./index.html">Logout</a></li><i class="small material-icons">input</i>
+                 <div class="datemonthyear"><h5 id="date-time"></h5></div>
+                 <div class="Time"><h1 id="demo"></h1></div>
+              </ul>
+          </div>
+        </header>
+
+    <head>
+        
+
+        <meta charset="utf-8">
+        <title>รับค่าจาก Firebase Real-time database</title>
+
+
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/3.4.0/firebase.js"></script>
+        <script>
+            // สร้างตัวแปรเก็บค่าset
+            var setDO = {};
+            
+            angular.module('firebaseApp', []).service('firebaseService', function() {
+                // สร้าง Function เพื่อ init Firebase เข้ากับ app เรา
+                this.initFirebase = function() {
+                    var config = {
+                        apiKey: "AIzaSyDoVJBqdSkgE6IJbvyS_lBnOJdRj0U9ypk",
+                        authDomain: "wealthy-a83a5.firebaseapp.com",
+                        databaseURL: "https://wealthy-a83a5-default-rtdb.firebaseio.com"
+                    };
+                    
+
+                    //อ้างอิงข้อมูลDatabase
+                    firebase.initializeApp(config);
+                    setDO = firebase.database().ref("Set")
+
+                }
+                // สร้าง Function เพื่อเก็บ event ของ Firebase
+                
+
+                this.eventFirebase = function() {
+
+                    setDO.on('value',function(data){
+                        const datas = Object.values(data.val());
+                        const show = datas[0]
+                        console.log(datas)
+                        console.log(show)
+                         document.getElementById('DO').innerHTML =" Air Quality Index : " + show + " AQI ";
+                        guage0.refresh(show);
+
+                        const EpochTime = datas[1]
+                        console.log(EpochTime)
+                        // document.getElementById('Epoch').innerHTML =" EpochTime : " + EpochTime + "sec";
+                        // guage1.refresh(EpochTime);
+                        var timestant = new Date(EpochTime * 1000)
+                        var year = timestant.getFullYear()+543 
+                        var month = timestant.getMonth()+1
+                        var day = timestant.getDate()
+                        document.getElementById('date-time').innerHTML = "วัน/เดือน/ปี ："+day+"/"+month+"/"+ year ;
+                        
+                        const Humidity = datas[2]
+                        console.log(Humidity)
+                        document.getElementById('Hum').innerHTML =" Humidity : " + Humidity + " %";
+                        guage2.refresh(Humidity);
+
+                        const temperature = datas[3]
+                        console.log(temperature)
+                        document.getElementById('Tem').innerHTML =" temperature : " + temperature + " องศา";
+                        guage3.refresh(temperature);
+
+                        setInterval(myTimer, 1000);
+                        function myTimer() {
+                        const d = new Date();
+                        document.getElementById("demo").innerHTML = d.toLocaleTimeString();
+                        }
+
+
+
+                        // const tempureter = datas[4]
+                        // console.log(tempureter)
+                        // document.getElementById('temp').innerHTML =" Tempureter : " + tempureter + "C";
+                        // guage4.refresh(tempureter);
+
+                    })
+                }
+                this.push = function(title, content) {}
+            }).controller('firebaseCtrl', function(firebaseService) {
+                // เรียกใช้งาน firebaseService ที่เราสร้างไว้
+                firebaseService.initFirebase();
+                firebaseService.eventFirebase();
+            })
+                 
+        </script>
+        
+    </head>
+
+     <style>
+        h5 {
+          font-size: 30px;
+          color: white ;
+          text-shadow: 1px 1px black;
+        }
+        h3 {
+            font-size: 30px;
+            color:greenyellow ;
+            text-align: center;
+            text-shadow: 1px 1px green;
+        }
+        h4 {
+            font-size: 30px;
+            color: greenyellow ;
+            text-align: center;
+            text-shadow: 1px 1px yellowgreen;
+        }
+        
+        h6 {
+            font-size: 30px;
+            color:greenyellow ;
+            text-align: center;
+            text-shadow: 1px 1px yellowgreen;
+        }
+
+        div.datemonthyear {
+              position: absolute;
+              top: 40px;
+              right:0;
+              width: 400px;
+              height: 100px;             
+            }
+        div.datemonthyear h5 {
+                font-size: 30px;
+                text-shadow: 1px 1px white;
+                color:black ;
+            }
+        
+        div .Time h1 {
+            position: absolute;
+            top: 30px;
+            right:0;
+            width: 150px;
+            height: 100px;  
+            font-size: 30px;
+            text-shadow: 1px 1px white;
+            color:black ;
+        }
+     </style>
+    <body ng-app="firebaseApp">
+        <div ng-controller="firebaseCtrl" >
+            <h5 id="DO" align="center">Air Quality Index</h5>
+            <div id = "guage0"  style="width:600px ;height: 300px ; margin: 0 auto"></div><br>
+            <!-- <h5 id="Epoch" align="right">EpochTime</h5>
+            <div id = "guage1" style="width:30%;"></div> -->
+            <h5 id="Hum" align="center">Humidity</h5>
+            <div id = "guage2"  style="width:600px ;height: 300px ; margin: 0 auto"></div>
+            <h5  id='Tem' align="center">temperature</h5>
+            <div id = "guage3"  style="width:600px ;height: 300px;margin: 0 auto ;"></div>
+        </div>
+
+        <script src="raphael-2.1.4.min.js"></script>
+        <script src="justgage.js"></script>     
+        <script>
+        var guage0; 
+            guage0 = new JustGage({
+                        id: "guage0",
+                        title: "Air Quality Index",
+                        value: 1,
+                        min: 0,
+                        max: 300,
+                        gaugeWidthScale: 0.7,
+                        counter: true,
+                        titleFontColor: "black",
+                        titleFontFamily: "Georgia",
+                        titlePosition: "below",
+                        valueFontColor: "Black",
+                        valueFontFamily: "Georgia",
+                        titleFontFamily: "Vollkorn",
+                        decimals : 2 ,
+                    });
+        // var guage1; 
+        //     guage1 = new JustGage({
+        //                 id: "guage1",
+        //                 title: "EpochTime",
+        //                 value: 1,
+        //                 min: 0,
+        //                 max: 10000000000,
+        //                 gaugeWidthScale: 0.7,
+        //                 counter: true,
+        //                 titleFontColor: "#000",
+        //                 titleFontFamily: "Georgia",
+        //                 titlePosition: "below",
+        //                 valueFontColor: "#505050",
+        //                 valueFontFamily: "Georgia",
+        //                 titleFontFamily: "Vollkorn",
+        //                 });
+
+            var guage2; 
+            guage2 = new JustGage({
+                        id: "guage2",
+                        title: "Humidity",
+                        value: 1,
+                        min: 30,
+                        max: 85,
+                        gaugeWidthScale: 0.7,
+                        counter: true,
+                        titleFontColor: "black",
+                        titleFontFamily: "Georgia",
+                        titlePosition: "below",
+                        valueFontColor: "Black",
+                        valueFontFamily: "Georgia",
+                        titleFontFamily: "Vollkorn",
+                        decimals : 2 ,
+                
+                        });
+            var guage3; 
+            guage3 = new JustGage({
+                        id: "guage3",
+                        title: "temperature",
+                        value: 1,
+                        min: 10,
+                        max: 45,
+                        gaugeWidthScale: 0.7,
+                        counter: true,
+                        titleFontColor: "black",
+                        titleFontFamily: "Georgia",
+                        titlePosition: "below",
+                        valueFontColor: "Black",
+                        valueFontFamily: "Georgia",
+                        titleFontFamily: "Vollkorn",
+                        decimals : 2 ,
+                        });
+      
+        </script>
+    </div>
+       <div class ="Check">
+           <br><br><br><br><h3><img src="ideaicon.png" alt="html5"width="50" height="50"/>ช่วงที่ดีที่สุดสำหรับการออกจากบ้าน<img src="ideaicon.png" alt="html5"width="50" height="50"/></h3>
+            <h4><img src="sun_best.png" alt="html5"width="400" height="400"/></h4>
+            <h6><img src="temicon.png" alt="html5"width="50" height="50"/>&emsp;ช่วงอุณหภูมิ: 32.5-35.5 องศา |  ความชื้น : 40-60% RH | ค่าฝุ่น : 0-50 AQI&emsp;<img src="temicon.png" alt="html5"width="50" height="50"/></h6>
+            <h6><img src="question.png" alt="html5"width="50" height="50"/>คำแนะนำ : ดีสำหรับการออกไปข้างนอกหรือทำกิจกรรมนอกบ้าน<img src="question.png" alt="html5"width="50" height="50"/></h6>
+       </div>
+       <div class = "check1">
+        <br><br><br><br><h3><img src="ideaicon.png" alt="html5"width="50" height="50"/>ช่วงปานกลางสำหรับการออกจากบ้าน<img src="ideaicon.png" alt="html5"width="50" height="50"/></h3>
+        <h4><img src="sun_normal.png" alt="html5"width="400" height="400"/></h4>
+        <h6><img src="temicon.png" alt="html5"width="50" height="50"/>&emsp;ช่วงอุณหภูมิ: 29.9 หรือน้อยกว่า 36.9 องศา |  ความชื้น : 38.8-65.5% RH | ค่าฝุ่น : 55-100 AQI&emsp;<img src="temicon.png" alt="html5"width="50" height="50"/></h6>
+        <h6><img src="question.png" alt="html5"width="50" height="50"/>คำแนะนำ : อากาศมีการเปลี่ยนแปลงนิดหน่อยแต่ยังสามารถออกไปข้างนอกได้ตามปกติ และ ค่าฝุ่นยังอยู่ในเกณฑ์ที่ดี<img src="question.png" alt="html5"width="50" height="50"/></h6>
+       </div>
+       <div class = "check2">
+        <br><br><br><br><h3><img src="ideaicon.png" alt="html5"width="50" height="50"/>ช่วงไม่ควรสำหรับการออกจากบ้าน<img src="ideaicon.png" alt="html5"width="50" height="50"/></h3>
+        <h4><img src="sun_bad.png" alt="html5"width="400" height="400"/></h4>
+        <h6><img src="temicon.png" alt="html5"width="50" height="50"/>&emsp;ช่วงอุณหภูมิ: 24.9 หรือน้อยกว่า 37.9 หรือมากกว่า  |  ความชื้น : 36.9% หรือน้อยกว่า 69.9% หรือมากกว่า | ค่าฝุ่น : 105.5-200 AQI&emsp;<img src="temicon.png" alt="html5"width="50" height="50"/></h6>
+        <h6><img src="question.png" alt="html5"width="50" height="50"/>คำแนะนำ : ถ้าไม่จำเป็นไม่ควรออกจากบ้าน หรือถ้าจำเป็นควรมีการป้องกันที่ถูกต้องและถูกวิธี<img src="question.png" alt="html5"width="50" height="50"/></h6>
+       </div>
+       <div class = "check3">
+        <br><br><br><br><h3><img src="ideaicon.png" alt="html5"width="50" height="50"/>ช่วงไม่ดีสำหรับการออกจากบ้าน<img src="ideaicon.png" alt="html5"width="50" height="50"/></h3>
+        <h4><img src="worst_normal.png" alt="html5"width="400" height="400"/></h4>
+        <h6><img src="temicon.png" alt="html5"width="50" height="50"/>&emsp;ช่วงอุณหภูมิ: 15.0 หรือน้อยกว่า 40.0 หรือมากกว่า |  ความชื้น : 33.0 หรือน้อยกว่า 79.9 หรือมากกว่า | ค่าฝุ่น : 200 AQI ขึ้นไป&emsp;<img src="temicon.png" alt="html5"width="50" height="50"/></h6>
+        <h6><img src="question.png" alt="html5"width="50" height="50"/>คำแนะนำ : ถ้าไม่จำเป็นจริงๆ ไม่ควรออกจากบ้าน เตือนด้วยความหวังดีครับ!!!!!<img src="question.png" alt="html5"width="50" height="50"/></h6>
+       </div>
+    </body>
+
+
+</html>
