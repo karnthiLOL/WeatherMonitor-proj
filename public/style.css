@@ -1,0 +1,190 @@
+body{
+    background-color: #232222;
+     background-image:url("CB.jpg");
+     background-position: center;
+     background-repeat: no-repeat;  
+     background-size: cover;
+ }
+    p1 {
+        color:#66CCFF ;
+    }
+    p2 {
+        color:#33CC33 ;
+    }
+    p3 {
+        color:#FFFF00 ;
+    }
+    p4 {
+        color:#FF6600 ;
+    }
+    p5 {
+        color:#FF0000 ;
+    }
+
+    p6 {
+        color : blue ;
+    }
+    p7 {
+        color : #3366FF;
+    }
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #3C3939;
+}
+
+.nav ul {
+    list-style: none;
+    background-color: #232222;
+    text-align: left;
+    font-family: monospace;
+    padding: 0;
+    margin: 0;
+    
+}
+
+.nav li {
+    font-size : 1.2em;
+    line-height: 50px;
+    text-align:left;
+    font-family: monospace;
+}
+
+.nav a {
+    text-decoration: none;
+    color: #fff;
+    display: block;
+    padding-right:10px;
+    border-bottom: 1px solid #888 ;
+    transition: .3s;
+    font-family: monospace;
+}
+.nav i {
+    color : #fff;
+    padding: 10px;
+    margin:-40px;
+}
+.nav a:hover {
+  background-color: #005f5f;
+
+}
+
+.mainHome .header h1 {
+    text-align:center;
+    color: skyblue;
+    font-family: monospace;
+    font-size : 3.2em;
+    padding: 0px;
+    margin: 0px;
+    text-shadow: 1px 1px blue;
+}
+
+.mainHome .header h2 {
+    text-align:center;
+    color: skyblue;
+    font-family: monospace;
+    font-size : 2.5em;
+    padding: 0px;
+    margin: 0px;
+    text-shadow: 1px 1px blue;
+}
+
+.mainHome .title h3 {
+    text-align:center;
+    color: orange;
+    font-family: monospace;
+    padding: 0px;
+    margin: 0px;
+    font-size:25px;
+    text-shadow: 1px 1px black;
+}
+
+.mainHome .title h4 {
+    text-align:center;
+    color: orange;
+    font-family: monospace;
+    padding: 0px;
+    margin: 0px;
+    font-size:15px;
+    text-shadow: 1px 1px black;
+}
+
+.mainHome .picture {
+    text-align:center;
+}
+
+.mainHome .subtitle {
+    margin: 30px;
+    width: 75%;
+    color: #fff;
+    line-height: 25px;
+    border-bottom: 30px;
+    margin-left: 25%;
+    font-size: 18px;
+    font-weight: 300;
+    text-shadow: 1px 1px black;
+}
+
+.check1 h3 {
+    font-size: 30px;
+    text-align: center;
+    color :yellow ;
+}
+
+.check1 h6 {
+    font-size: 30px;
+    text-align: center;
+    color :yellow ;
+}
+.check2 h3 {
+    font-size: 30px;
+    text-align: center;
+    color :orange ;
+    text-shadow: 1px 1px yellow;
+}
+
+.check2 h6 {
+    font-size: 30px;
+    text-align: center;
+    color :orange ;
+    text-shadow: 1px 1px yellow;
+}
+.check3 h3 {
+    font-size: 30px;
+    text-align: center;
+    color :	red ;
+    text-shadow: 1px 1px black;
+}
+
+.check3 h6 {
+    font-size: 30px;
+    text-align: center;
+    color :	red ;
+    text-shadow: 1px 1px black;
+
+}
+
+
+@media screen and (min-width: 650px) {
+    .nav li {
+        width: 130px;
+        border-bottom: none;
+        height: 50px;
+        line-height: 50px;
+        font-size: 1.4em;
+        display: inline-block;
+        margin-right: -4px;
+
+    }
+    .nav a {
+        border-bottom: none;
+    }
+    .nav > ul > li {
+        text-align: center;
+    }
+    .nav li ul {
+        position:absolute;
+        display: none;
+        width: inherit;
+    }
+}
